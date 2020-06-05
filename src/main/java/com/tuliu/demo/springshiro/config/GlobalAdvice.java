@@ -5,6 +5,7 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +29,7 @@ public class GlobalAdvice {
     @ExceptionHandler({
             IncorrectCredentialsException.class,
             UnknownAccountException.class,
+            MissingServletRequestParameterException.class
     })
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
