@@ -42,4 +42,12 @@ public class SysController {
         return data;
     }
 
+    @GetMapping("/sys/dynamic-query")
+    public List<UserRolePermission> getUserRolePermissions(
+            @RequestParam("uid") Integer uid,
+            @RequestParam(value = "username", required = false, defaultValue = "") String username) {
+        List<UserRolePermission> data = queryDslService.findUserRolePermission(uid, username);
+        return data;
+    }
+
 }
